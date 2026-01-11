@@ -1,0 +1,112 @@
+﻿<mah:MetroWindow x:Class="Jenkins.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jenkins"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        xmlns:Fluent="urn:fluent-ribbon" xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+                 WindowState="Maximized"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <DockPanel>
+            <Grid DockPanel.Dock="Left" Background="#E5303030" Width="250">
+                <StackPanel x:Name="Menu" Margin="10">
+                    <Grid>
+                        <!-- Definimos el titulo del panel -->
+                        <material:PackIcon Kind="Home" Width="15" Height="15" Margin="10 16" Foreground="White"/>
+                        <!-- Ahora utilizamos este control que ns muestra un elemento de la lista -->
+                        <ListBoxItem x:Name="ListViewItemMenu" 
+                                     Content="Inicio" 
+                                     Padding="37 14" 
+                                     FontSize="15" 
+                                     Foreground="White"
+                                     Style="{StaticResource MaterialDesignListBoxItem}"/>
+                    </Grid>
+                    
+                    
+                    
+             <Grid>
+             <!-- Ahora mostramos el icono de la sección -->
+            <material:PackIcon Kind="Table" 
+                               Width="15" 
+                               Height="15" 
+                               Margin="10 16" 
+                               Foreground="White" />
+                        <!-- Utilizamos elcontrol Expander para la primera sección -->
+                     <Expander IsExpanded="False" 
+                               Width="210"
+                               HorizontalAlignment="Right" 
+                               Style="{StaticResource MaterialDesignExpander}"
+                               Header="Reservas" 
+                               Background="{x:Null}" 
+                               Foreground="White" >
+                            <!-- Utilizamos este control para mostrar la lista de opciones de la sección -->
+                            <ListView x:Name="ListViewMenu" ItemsSource="{Binding
+                                Path=SubItems}" Foreground="White" Style="{StaticResource
+                                MaterialDesignListView}"
+                                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                
+                                
+                                <!--Añadimos una reserva-->
+                                <ListViewItem Content="Añadir Reserva"
+                                              MouseDoubleClick="AnyadirReserva"
+                                              Padding="20 5" Cursor="Hand"/>
+
+
+
+                                <!--Canelamos una resverva-->
+                                <ListViewItem Content="Cancelar Reserva" 
+                                              
+                                              Padding="20 5" />
+                                
+                                
+                                <!--Listamos la reservas que hay-->
+                                <ListViewItem Content="Lista de reservas" Padding="20 5" />
+                            </ListView>
+                        </Expander>
+                    </Grid>
+                    <Grid>
+                        
+                        
+                        <!-- Aqui hacemos la seccion de pedidos los cual podemos REALIZAR  -->
+                        <material:PackIcon 
+                            Kind="Tray" 
+                            Width="15"
+                            Height="15"
+                            Margin="10 16" 
+                            Foreground="White" />
+                        
+                        <Expander IsExpanded="False" 
+                                  Width="210"
+                                  HorizontalAlignment="Right" 
+                                  Header="Pedidos"
+                            Style="{StaticResource 
+                            MaterialDesignExpander}"
+                            Background="{x:Null}" Foreground="White">
+                            
+                            
+                            <ListView ItemsSource="{Binding Path=SubItems}"
+                                      Foreground="White" Style="{StaticResource
+                                      MaterialDesignListView}"
+                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListViewItem Content="Realizar Pedido" Padding="20 5" />
+                                <ListViewItem Content="Cancelar Pedido" Padding="20 5" />
+                                <ListViewItem Content="Mis pedidos" Padding="20 5" />
+                            </ListView>
+                        </Expander>
+                    </Grid>
+                </StackPanel>
+            </Grid >
+            <Grid x:Name="gridCentral">
+            </Grid>
+        </DockPanel>
+        
+        
+        <Grid></Grid>
+        
+
+    </Grid>
+</mah:MetroWindow>
