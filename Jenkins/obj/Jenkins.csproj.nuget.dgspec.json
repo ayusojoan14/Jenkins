@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Jenkins.csproj": {}
+    "C:\\Users\\windows10\\Source\\Repos\\Jenkins\\Jenkins\\Jenkins.csproj": {}
   },
   "projects": {
-    "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Jenkins.csproj": {
+    "C:\\Users\\windows10\\Source\\Repos\\Jenkins\\Jenkins\\Jenkins.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Jenkins.csproj",
+        "projectUniqueName": "C:\\Users\\windows10\\Source\\Repos\\Jenkins\\Jenkins\\Jenkins.csproj",
         "projectName": "Jenkins",
-        "projectPath": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Jenkins.csproj",
+        "projectPath": "C:\\Users\\windows10\\Source\\Repos\\Jenkins\\Jenkins\\Jenkins.csproj",
         "packagesPath": "C:\\Users\\windows10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\obj\\",
+        "outputPath": "C:\\Users\\windows10\\Source\\Repos\\Jenkins\\Jenkins\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
