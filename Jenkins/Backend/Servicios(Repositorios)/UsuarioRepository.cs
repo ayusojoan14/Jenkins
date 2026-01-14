@@ -43,7 +43,7 @@ namespace Jenkins.Backend.Servicios_Repositorios_
                     .FirstOrDefaultAsync(u => u.Username == username)
                     .ConfigureAwait(false);
                 // Compruebo si el usuario existe y la contraseña coincide
-                if (usuario != null && usuario.Password == password)
+                if (usuario != null && usuario.PasswordHash == password)
                 {
                     isAuthenticated = true;
                 }
@@ -80,13 +80,13 @@ namespace Jenkins.Backend.Servicios_Repositorios_
                 }
 
                 // Verificar contraseña actual (simple). Si usas hashing, verifica el hash en lugar de comparar strings.
-                if (usuario.Password != currentPassword)
+                if (usuario.PasswordHash != currentPassword)
                 {
                     _logger.LogWarning("Cambio de contraseña fallido: contraseña actual incorrecta para usuario id {Id}.", userId);
                     return false;
                 }
 
-                usuario.Password = newPassword;
+                usuario.PasswordHash = newPassword;
 
                 // UpdateAsync en la implementación persiste los cambios (SaveChangesAsync).
                 await UpdateAsync(usuario).ConfigureAwait(false);
