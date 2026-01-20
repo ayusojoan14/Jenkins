@@ -1,5 +1,7 @@
-﻿using Jenkins.Backend.Modelo;
+﻿    using Jenkins.Backend.Modelo;
+using Jenkins.Backend.Servicios;
 using MahApps.Metro.Controls;
+using Microsoft.Extensions.Logging.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,41 +24,37 @@ namespace Jenkins.Frontend.Dialogo
     /// </summary>
     public partial class Login : MetroWindow
     {
-
-        //Añadimos los repositorios necesarios para el login y registro
-        private PracticaDllContext _context;
-        private Usuario  _usuarioRepositorio;
+        private UsuarioRepository _usuarioRepository;
         private MainWindow _mainWindow;
+        private PracticaDllContext _context;
 
         public Login()
         {
             InitializeComponent();
 
+            _context = new PracticaDllContext();
+            _usuarioRepository = new UsuarioRepository(_context, NullLogger<UsuarioRepository>.Instance); 
+            _mainWindow = new MainWindow();
         }
-     
 
-    private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(passClave.Password))
             {
-                //Añadimos el accesoPermitido para poder validar el usuario y la contraseña
-                //y solo si esta en la base de datos podrá iniciar sesion
-                // Validación directa usando los controles txtUsuario y passClave
-                bool accesoPermitido = await _usuarioRepositorio.LoginAsync(txtUsuario.Text, passClave.Password);
-                //Tambien añadimos este if
+                bool accesoPermitido = _usuarioRepository
+                    .LoginAsync(txtUsuario.Text, passClave.Password)
+                    .Result;
+
                 if (accesoPermitido)
                 {
-                    //Esta ya estaba
                     _mainWindow.Show();
                     this.Close();
                 }
-                //y añadimos el else en el caso de que no este en la bbdd
                 else
                 {
                     MessageBox.Show("Usuario o contraseña incorrectos.", "Error de autenticación",
                                            MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-
             }
             else
             {
@@ -65,11 +63,13 @@ namespace Jenkins.Frontend.Dialogo
             }
         }
 
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            // Aquí va la lógica de registro
-            MessageBox.Show("Register button clicked");
+            
         }
-
     }
 }

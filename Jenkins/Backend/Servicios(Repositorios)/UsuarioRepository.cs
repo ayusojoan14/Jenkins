@@ -1,71 +1,56 @@
 ﻿using Jenkins.Backend.Modelo;
+using Jenkins.Backend.Servicios_Repositorios_;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Jenkins.Backend.Servicios_Repositorios_
+namespace Jenkins.Backend.Servicios
 {
-    public class UsuarioRepository : GenericRepository<Usuario>
+    /// <summary>
+    /// Repositorio específico para <see cref="Usuario"/>.
+    /// </summary>
+    public class UsuarioRepository : GenericRepository<Usuario> 
     {
-        public Usuario? UsuarioLogin { get; private set; } // Aquí la defines
-        private readonly ILogger<GenericRepository<Usuario>> _logger;
-        /// <summary>
-        /// Crea una nueva instancia de <see cref="UsuarioRepository"/>.
-        /// </summary>
-        /// <param name="context">Contexto de base de datos.</param>
-        /// <param name="logger">Logger para el repositorio.</param>
-        public UsuarioRepository(PracticaDllContext context, ILogger<GenericRepository<Usuario>> logger)
+        public Usuario? UsuarioLogin { get; private set; }
+        private readonly ILogger<UsuarioRepository> _logger;
+
+        public UsuarioRepository( PracticaDllContext context,  ILogger<GenericRepository<Usuario>> logger)
             : base(context, logger)
         {
+           
         }
 
         /// <summary>
-        /// Intenta autenticar un usuario por nombre y contraseña.
-        /// Devuelve la entidad <see cref="Usuario"/> si las credenciales son correctas, o null en caso contrario.
-        /// Nota: el método compara la cadena de contraseña tal cual. Si usas hashing (recomendado), aplica el
-        /// verificador de hash aquí antes de comparar.
+        /// Login de usuario por username y contraseña.
         /// </summary>
-        /// <param name="username">Nombre de usuario.</param>
-        /// <param name="password">Contraseña en texto plano (o ya hasheada si ese es tu flujo).</param>
-        /// <param name="cancellationToken">Token de cancelación.</param>
-        /// <returns>Usuario autenticado o null si las credenciales no son válidas.</returns>
-        public async Task<bool> LoginAsync(string username, string password)
+        public async Task<bool> LoginAsync(string username, string password, CancellationToken cancellationToken = default)
         {
-            bool isAuthenticated = false;
             try
             {
-                // Obtengo el usuario por username
                 var usuario = await Query(asNoTracking: true)
-                    .FirstOrDefaultAsync(u => u.Username == username)
+                    .FirstOrDefaultAsync(u => u.Username == username, cancellationToken)
                     .ConfigureAwait(false);
-                // Compruebo si el usuario existe y la contraseña coincide
-                if (usuario != null && usuario.PasswordHash == password)
-                {
-                    isAuthenticated = true;
-                }
-                return isAuthenticated;
+
+                if (usuario == null)
+                    return false;
+
+                // Comparación simple (si usas hashing, aquí se valida el hash)
+                return usuario.PasswordHash == password;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al autenticar usuario {Username}.", username);
+                _logger.LogError(ex, "Error al autenticar el usuario {Username}", username);
                 throw;
             }
         }
 
         /// <summary>
-        /// Cambia la contraseña de un usuario verificando la contraseña actual.
-        /// Devuelve true si la contraseña se actualizó correctamente, false si no se encontró el usuario o la contraseña actual no coincide.
+        /// Cambio de contraseña validando la contraseña actual.
         /// </summary>
-        /// <param name="userId">Id del usuario.</param>
-        /// <param name="currentPassword">Contraseña actual en texto plano (o hasheada si ese es tu flujo).</param>
-        /// <param name="newPassword">Nueva contraseña (texto plano o hasheada según tu política).</param>
-        /// <param name="cancellationToken">Token de cancelación.</param>
-        /// <returns>True si el cambio tuvo éxito; false en caso contrario.</returns>
-        public async Task<bool> ChangePasswordAsync(int userId, string currentPassword, string newPassword)
+        public async Task<bool> ChangePasswordAsync(
+            int userId,
+            string currentPassword,
+            string newPassword,
+            CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(newPassword))
                 throw new ArgumentException("La nueva contraseña no puede estar vacía.", nameof(newPassword));
@@ -73,74 +58,52 @@ namespace Jenkins.Backend.Servicios_Repositorios_
             try
             {
                 var usuario = await GetByIdAsync(userId).ConfigureAwait(false);
+
                 if (usuario == null)
                 {
-                    _logger.LogWarning("Cambio de contraseña: usuario con id {Id} no encontrado.", userId);
+                    _logger.LogWarning("Usuario con id {Id} no encontrado.", userId);
                     return false;
                 }
 
-                // Verificar contraseña actual (simple). Si usas hashing, verifica el hash en lugar de comparar strings.
                 if (usuario.PasswordHash != currentPassword)
                 {
-                    _logger.LogWarning("Cambio de contraseña fallido: contraseña actual incorrecta para usuario id {Id}.", userId);
+                    _logger.LogWarning("Contraseña actual incorrecta para el usuario {Id}.", userId);
                     return false;
                 }
 
                 usuario.PasswordHash = newPassword;
 
-                // UpdateAsync en la implementación persiste los cambios (SaveChangesAsync).
                 await UpdateAsync(usuario).ConfigureAwait(false);
 
-                _logger.LogInformation("Contraseña actualizada correctamente para usuario id {Id}.", userId);
+                _logger.LogInformation("Contraseña cambiada correctamente para el usuario {Id}.", userId);
                 return true;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al cambiar la contraseña del usuario id {Id}.", userId);
+                _logger.LogError(ex, "Error al cambiar la contraseña del usuario {Id}", userId);
                 throw;
             }
         }
 
         /// <summary>
-        /// Obtiene un usuario por su nombre de usuario (sin tracking).
+        /// Obtiene un usuario por username (sin tracking).
         /// </summary>
-        /// <param name="username">Nombre de usuario.</param>
-        /// <param name="cancellationToken">Token de cancelación.</param>
-        /// <returns>Usuario o null si no existe.</returns>
         public async Task<Usuario?> GetByUsernameAsync(string username, CancellationToken cancellationToken = default)
         {
             return await Query(asNoTracking: true)
-                         .FirstOrDefaultAsync(u => u.Username == username, cancellationToken)
-                         .ConfigureAwait(false);
+                .Include(u => u.Rol)
+                .FirstOrDefaultAsync(u => u.Username == username, cancellationToken)
+                .ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Comprueba si existe un usuario con el nombre proporcionado.
+        /// Comprueba si existe un usuario con ese username.
         /// </summary>
-        /// <param name="username">Nombre de usuario a comprobar.</param>
-        /// <param name="cancellationToken">Token de cancelación.</param>
-        /// <returns>True si existe, false en caso contrario.</returns>
         public async Task<bool> ExistsByUsernameAsync(string username, CancellationToken cancellationToken = default)
         {
             return await Query(asNoTracking: true)
-                         .AnyAsync(u => u.Username == username, cancellationToken)
-                         .ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Obtiene un usuario junto con sus colecciones de artículos (ejemplo de include).
-        /// Devuelve entidades trackeadas porque puede usarse para edición.
-        /// </summary>
-        /// <param name="id">Id del usuario.</param>
-        /// <param name="cancellationToken">Token de cancelación.</param>
-        /// <returns>Usuario con navegación incluida o null.</returns>
-        public async Task<Usuario?> GetWithArticulosAsync(int id, CancellationToken cancellationToken = default)
-        {
-            return await Query(asNoTracking: false,
-                               u => u.ArticuloUsuarioaltaNavigations,
-                               u => u.ArticuloUsuariobajaNavigations)
-                         .FirstOrDefaultAsync(u => u.Idusuario == id, cancellationToken)
-                         .ConfigureAwait(false);
+                .AnyAsync(u => u.Username == username, cancellationToken)
+                .ConfigureAwait(false);
         }
     }
 }

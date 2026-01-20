@@ -6,38 +6,201 @@
       xmlns:local="clr-namespace:Jenkins.Frontend.Dialogo"
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      mc:Ignorable="d"
+      Height="700"
+      Width="600"
       Title="Añadir Reserva">
 
     <Grid>
-        <!-- Rectangulo inicial -->
-        <Grid Width="Auto"
-        Height="100"
-        Margin="0,0,0,20"
-        VerticalAlignment="Top">
+
+        <!-- ===================== -->
+        <!-- CABECERA -->
+        <!-- ===================== -->
+        <Grid Height="100" VerticalAlignment="Top">
             <Rectangle Fill="#454545"/>
-        <TextBlock
-            Text="RESERVAR DE MESA"
-            FontSize="30"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Foreground="White"/>
-    </Grid>
-    <!-- Formulario -->
-    <Grid Margin="5">
             <TextBlock
-        Text="Los campos con asterico son obligatorios"
-        Margin="10,100,0,0"
-        VerticalAlignment="Top"
-        HorizontalAlignment="Left"
-        FontSize="16"
-        FontWeight="Bold"/>
+                Text="RESERVA DE MESA"
+                FontSize="30"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Foreground="White"/>
         </Grid>
 
+        <!-- ===================== -->
+        <!-- CONTENIDO -->
+        <!-- ===================== -->
+        <Grid Margin="10">
+
+            <TextBlock
+                Text="Los campos con asterisco son obligatorios"
+                Margin="10,100,0,0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                FontSize="16"
+                FontWeight="Bold"/>
+
+            <!-- ===================== -->
+            <!-- DATOS DE LA RESERVA -->
+            <!-- ===================== -->
+
+            <TextBlock
+                Text="DATOS DE LA RESERVA"
+                Margin="10,140,0,0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                FontSize="26"
+                Foreground="Red"/>
+
+            <Line
+                X1="10"
+                Y1="50"
+                X2="580"
+                Y2="50"
+                Stroke="DarkGray"
+                StrokeThickness="1"
+                Margin="0,130,0,0"/>
+
+            <!-- COLUMNA IZQUIERDA -->
+            <StackPanel
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="300"
+                Margin="0,200,0,0">
+
+                <!-- Cliente -->
+                <ComboBox
+                    Width="230"
+                    Height="40"
+                    FontWeight="Bold"
+                    ItemsSource="{Binding ListaClientes}"
+                    SelectedItem="{Binding Reserva.DniClienteNavigation}"
+                    DisplayMemberPath="Nombre"
+                    mat:HintAssist.Hint="Cliente*"
+                    Style="{StaticResource MaterialDesignComboBox}"/>
+
+                <!-- Número de personas -->
+                <TextBox
+                    Width="230"
+                    Height="40"
+                    Text="{Binding Reserva.NumeroPersonas}"
+                    mat:HintAssist.Hint="Número de personas*"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                <!-- Fecha -->
+                <DatePicker
+                    Width="230"
+                    Height="40"
+                    SelectedDate="{Binding Reserva.Fecha}"
+                    mat:HintAssist.Hint="Fecha de la reserva*"
+                    Style="{StaticResource MaterialDesignDatePicker}"/>
+
+            </StackPanel>
+
+            <!-- COLUMNA DERECHA -->
+            <StackPanel
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Width="300"
+                Margin="0,200,0,0">
+
+                <!-- Hora inicio -->
+                <TextBox
+                    Width="230"
+                    Height="40"
+                    Text="{Binding Reserva.HoraInicio}"
+                    mat:HintAssist.Hint="Hora inicio (HH:mm)*"/>
+
+                <!-- Hora fin -->
+                <TextBox
+                    Width="230"
+                    Height="40"
+                    Text="{Binding Reserva.HoraFin}"
+                    mat:HintAssist.Hint="Hora fin (HH:mm)*"/>
+
+                <!-- Estado -->
+                <ComboBox
+                    Width="230"
+                    Height="40"
+                    ItemsSource="{Binding ListaEstadosReserva}"
+                    SelectedItem="{Binding Reserva.Estado}"
+                    mat:HintAssist.Hint="Estado"
+                    Style="{StaticResource MaterialDesignComboBox}"/>
+
+            </StackPanel>
+
+            <!-- ===================== -->
+            <!-- MESAS -->
+            <!-- ===================== -->
+
+            <TextBlock
+                Text="MESAS"
+                Margin="10,380,0,0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                FontSize="26"
+                Foreground="Red"/>
+
+            <Line
+                X1="10"
+                Y1="50"
+                X2="580"
+                Y2="50"
+                Stroke="DarkGray"
+                StrokeThickness="1"
+                Margin="0,370,0,0"/>
+
+            <ListBox
+                Margin="30,440,30,0"
+                Height="120"
+                ItemsSource="{Binding MesasDisponibles}"
+                SelectionMode="Multiple">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding NombreMesa}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- ===================== -->
+            <!-- OBSERVACIONES -->
+            <!-- ===================== -->
+
+            <TextBlock
+                Text="Observaciones"
+                Margin="31,575,31,0"
+                VerticalAlignment="Top"/>
+
+            <TextBox
+                Height="60"
+                Margin="31,590,31,0"
+                Text="{Binding Reserva.Observaciones}"
+                TextWrapping="Wrap"/>
+
+        </Grid>
+
+        <!-- ===================== -->
+        <!-- BOTONES -->
+        <!-- ===================== -->
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Margin="0,10,31,40">
+
+            <Button
+                Content="Cancelar"
+                Width="100"
+                Height="35"
+                Margin="0,0,20,0"
+                Style="{StaticResource MaterialDesignFlatButton}"/>
+
+            <Button
+                Content="Guardar"
+                Width="100"
+                Height="35"
+                Style="{StaticResource MaterialDesignFlatButton}"/>
+
+        </StackPanel>
+
     </Grid>
-
-
-
-
 </mah:MetroWindow>

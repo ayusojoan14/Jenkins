@@ -116,6 +116,7 @@ Margin="0,10,0,0"/>
         
         <!-- Fila 6 (Boton de login) -->
         <Button
+  IsDefault="True"
   Content="Login"
   x:Name="btnLogin"
   Click="btnLogin_Click"

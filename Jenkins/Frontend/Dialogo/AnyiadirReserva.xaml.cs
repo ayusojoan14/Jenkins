@@ -25,5 +25,8 @@ namespace Jenkins.Frontend.Dialogo
         {
             InitializeComponent();
         }
+    
     }
+
+
 }

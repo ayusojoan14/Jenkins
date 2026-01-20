@@ -251,7 +251,6 @@ C:\Users\windows10\Source\Repos\Jenkins\Jenkins\obj\Debug\net8.0-windows\Jenkins
 C:\Users\windows10\Source\Repos\Jenkins\Jenkins\obj\Debug\net8.0-windows\Jenkins.AssemblyInfoInputs.cache
 C:\Users\windows10\Source\Repos\Jenkins\Jenkins\obj\Debug\net8.0-windows\Jenkins.AssemblyInfo.cs
 C:\Users\windows10\Source\Repos\Jenkins\Jenkins\obj\Debug\net8.0-windows\Jenkins.csproj.CoreCompileInputs.cache
-C:\Users\windows10\Source\Repos\Jenkins\Jenkins\obj\Debug\net8.0-windows\Jenkins.sourcelink.json
 C:\Users\windows10\Source\Repos\Jenkins\Jenkins\obj\Debug\net8.0-windows\Jenkins.csproj.Up2Date
 C:\Users\windows10\Source\Repos\Jenkins\Jenkins\obj\Debug\net8.0-windows\Jenkins.dll
 C:\Users\windows10\Source\Repos\Jenkins\Jenkins\obj\Debug\net8.0-windows\refint\Jenkins.dll
