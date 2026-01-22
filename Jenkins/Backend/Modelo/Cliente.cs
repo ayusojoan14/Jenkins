@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("cliente")]
-public partial class Cliente
+public partial class Cliente : ValidatableViewModel
 {
     [Key]
     [Column("DNI")]

@@ -117,14 +117,10 @@
                     Text="{Binding Reserva.HoraFin}"
                     mat:HintAssist.Hint="Hora fin (HH:mm)*"/>
 
-                <!-- Estado -->
-                <ComboBox
-                    Width="230"
-                    Height="40"
-                    ItemsSource="{Binding ListaEstadosReserva}"
-                    SelectedItem="{Binding Reserva.Estado}"
-                    mat:HintAssist.Hint="Estado"
-                    Style="{StaticResource MaterialDesignComboBox}"/>
+
+                <!-- Numero de personas -->
+
+
 
             </StackPanel>
 

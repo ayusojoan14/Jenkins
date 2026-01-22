@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("plato")]
-public partial class Plato
+public partial class Plato : ValidatableViewModel
 {
     [Key]
     [Column("ID")]

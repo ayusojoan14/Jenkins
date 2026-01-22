@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
@@ -11,7 +12,7 @@ namespace Jenkins.Backend.Modelo;
 [Index("IdPersonal", Name = "ID_Personal")]
 [Index("Username", Name = "Username", IsUnique = true)]
 [Index("RolId", Name = "rol_id")]
-public partial class Usuario
+public partial class Usuario : ValidatableViewModel
 {
     [Key]
     [Column("ID")]

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("horario")]
-public partial class Horario
+public partial class Horario : ValidatableViewModel
 {
     [Key]
     [Column("ID")]

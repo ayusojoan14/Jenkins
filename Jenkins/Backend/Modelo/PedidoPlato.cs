@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
@@ -9,7 +10,7 @@ namespace Jenkins.Backend.Modelo;
 [PrimaryKey("IdPedido", "IdPlato")]
 [Table("pedido_plato")]
 [Index("IdPlato", Name = "ID_Plato")]
-public partial class PedidoPlato
+public partial class PedidoPlato : ValidatableViewModel
 {
     [Key]
     [Column("ID_Pedido")]

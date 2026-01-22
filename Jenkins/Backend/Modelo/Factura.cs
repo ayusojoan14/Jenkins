@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("factura")]
 [Index("IdPedido", Name = "ID_Pedido", IsUnique = true)]
-public partial class Factura
+public partial class Factura : ValidatableViewModel
 {
     [Key]
     [Column("ID")]
