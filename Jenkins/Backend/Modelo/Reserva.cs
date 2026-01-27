@@ -27,6 +27,7 @@ public partial class Reserva : ValidatableViewModel
     public TimeSpan? Hora { get; set; }
 
     [Column("Numero_Personas")]
+    [Required(ErrorMessage = "El número de personas es obligatorio")]
     public int? NumeroPersonas { get; set; }
 
     [Column("ID_Personal")]

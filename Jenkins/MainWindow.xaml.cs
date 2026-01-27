@@ -1,4 +1,5 @@
-﻿using Jenkins.Frontend.Dialogo;
+﻿using Jenkins.Backend.Modelo;
+using Jenkins.Frontend.Dialogo;
 using MahApps.Metro.Controls;
 using System.Text;
 using System.Windows;
@@ -18,14 +19,16 @@ namespace Jenkins
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        public MainWindow()
+
+        private AnyiadirReserva _anyadirReserva;
+        public MainWindow(AnyiadirReserva anyiadirReserva)
         {
             InitializeComponent();
+            _anyadirReserva = anyiadirReserva;
         }
 
-        private void AnyadirReserva(object sender, MouseButtonEventArgs e) {
-            AnyiadirReserva ventana = new AnyiadirReserva(); 
-            ventana.Show();
+        private void AnyadirReserva(object sender, RoutedEventArgs e) {
+           _anyadirReserva.ShowDialog();
         }
 
     }

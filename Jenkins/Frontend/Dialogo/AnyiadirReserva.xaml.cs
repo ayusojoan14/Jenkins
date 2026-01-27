@@ -1,4 +1,6 @@
-﻿using MahApps.Metro.Controls;
+﻿using Jenkins.Backend.Modelo;
+using Jenkins.Backend.MVVM;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Jenkins.Frontend.Dialogo
 {
     /// <summary>
@@ -21,11 +24,14 @@ namespace Jenkins.Frontend.Dialogo
     /// </summary>
     public partial class AnyiadirReserva : MetroWindow
     {
-        public AnyiadirReserva()
+        private MVMesa _mVMesa;
+        public AnyiadirReserva( MVMesa mVMesa)
         {
             InitializeComponent();
+            _mVMesa = mVMesa;
         }
-    
+      
+
     }
 
 

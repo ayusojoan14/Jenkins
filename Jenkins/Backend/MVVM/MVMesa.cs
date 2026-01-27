@@ -10,7 +10,7 @@ using Jenkins.Backend.Servicios_Repositorios_;
 
 namespace Jenkins.Backend.MVVM
 {
-    internal class MVMesa : MVBase
+    public class MVMesa : MVBase
     {
         #region Campos y propiedades priivados
 
@@ -19,7 +19,12 @@ namespace Jenkins.Backend.MVVM
         /// </summary>
         private Mesa _mesa;
         private Reserva _reserva;
-        
+        private DisponibilidadMesa _disponibilidadMesa;
+        private Horario _horario;
+
+
+
+
 
 
 
@@ -28,10 +33,16 @@ namespace Jenkins.Backend.MVVM
         /// <summary>
         /// Ponemos los repositorios que vayamos a necesitar
         /// </summary>
-
+        private HorarioRepository _horarioRepository;
         private MesaRepository _mesaRepository;
         private ReservaRepository _reservaRepository;
         private DisponibilidadMesaRepository _disponibilidadMesaRepository;
+
+        ///Lista de las mesas que puede haber
+        ///
+        private List<DisponibilidadMesa> _listaDisponibilidadMesas;
+
+
         #endregion
 
     }

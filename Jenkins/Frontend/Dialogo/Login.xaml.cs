@@ -28,13 +28,13 @@ namespace Jenkins.Frontend.Dialogo
         private MainWindow _mainWindow;
         private PracticaDllContext _context;
 
-        public Login()
+        public Login(MainWindow mainWindow)
         {
             InitializeComponent();
 
             _context = new PracticaDllContext();
             _usuarioRepository = new UsuarioRepository(_context, NullLogger<UsuarioRepository>.Instance); 
-            _mainWindow = new MainWindow();
+            _mainWindow = mainWindow;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
