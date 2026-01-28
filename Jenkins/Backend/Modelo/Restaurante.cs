@@ -6,22 +6,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
-[Table("horario")]
-public partial class Horario
+[Table("restaurante")]
+public partial class Restaurante
 {
     [Key]
     [Column("ID")]
     public int Id { get; set; }
 
-    [StringLength(30)]
-    public string? Dia { get; set; }
+    [StringLength(100)]
+    public string Nombre { get; set; } = null!;
 
-    [Column("Hora_Entrada", TypeName = "time")]
-    public TimeSpan HoraEntrada { get; set; }
+    [StringLength(255)]
+    public string Direccion { get; set; } = null!;
 
-    [Column("Hora_Salida", TypeName = "time")]
-    public TimeSpan HoraSalida { get; set; }
+    [InverseProperty("IdRestauranteNavigation")]
+    public virtual ICollection<Mesa> Mesas { get; set; } = new List<Mesa>();
 
-    [InverseProperty("Horario")]
+    [InverseProperty("IdRestauranteNavigation")]
     public virtual ICollection<Personal> Personals { get; set; } = new List<Personal>();
 }

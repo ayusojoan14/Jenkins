@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("mesa")]
-public partial class Mesa : ValidatableViewModel
+[Index("IdRestaurante", Name = "mesa_fk_restaurante")]
+public partial class Mesa
 {
     [Key]
     [Column("ID_Mesa")]
     public int IdMesa { get; set; }
+
+    [Column("ID_Restaurante")]
+    public int? IdRestaurante { get; set; }
 
     public int? Numero { get; set; }
 
@@ -23,6 +26,10 @@ public partial class Mesa : ValidatableViewModel
 
     [InverseProperty("IdMesaNavigation")]
     public virtual ICollection<DisponibilidadMesa> DisponibilidadMesas { get; set; } = new List<DisponibilidadMesa>();
+
+    [ForeignKey("IdRestaurante")]
+    [InverseProperty("Mesas")]
+    public virtual Restaurante? IdRestauranteNavigation { get; set; }
 
     [ForeignKey("IdMesa")]
     [InverseProperty("IdMesas")]

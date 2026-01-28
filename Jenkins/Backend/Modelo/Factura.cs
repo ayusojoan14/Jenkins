@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("factura")]
-[Index("IdPedido", Name = "ID_Pedido", IsUnique = true)]
-public partial class Factura : ValidatableViewModel
+[Index("IdPedido", Name = "uniq_factura_pedido", IsUnique = true)]
+public partial class Factura
 {
     [Key]
     [Column("ID")]
@@ -19,7 +18,7 @@ public partial class Factura : ValidatableViewModel
     public int IdPedido { get; set; }
 
     [Precision(10)]
-    public decimal? Total { get; set; }
+    public decimal Total { get; set; }
 
     [Column("IVA")]
     [Precision(5)]

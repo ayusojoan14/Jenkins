@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("disponibilidad_mesa")]
 [Index("IdMesa", Name = "ID_Mesa")]
-public partial class DisponibilidadMesa : ValidatableViewModel
+public partial class DisponibilidadMesa
 {
     [Key]
     [Column("ID")]

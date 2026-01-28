@@ -47,6 +47,8 @@ public partial class PracticaDllContext : DbContext
 
     public virtual DbSet<Reserva> Reservas { get; set; }
 
+    public virtual DbSet<Restaurante> Restaurantes { get; set; }
+
     public virtual DbSet<Rol> Rols { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
@@ -82,7 +84,7 @@ public partial class PracticaDllContext : DbContext
 
             entity.Property(e => e.FechaPago).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-            entity.HasOne(d => d.IdPedidoNavigation).WithOne(p => p.Factura).HasConstraintName("factura_ibfk_1");
+            entity.HasOne(d => d.IdPedidoNavigation).WithOne(p => p.Factura).HasConstraintName("factura_fk_pedido");
         });
 
         modelBuilder.Entity<Horario>(entity =>
@@ -93,6 +95,10 @@ public partial class PracticaDllContext : DbContext
         modelBuilder.Entity<Mesa>(entity =>
         {
             entity.HasKey(e => e.IdMesa).HasName("PRIMARY");
+
+            entity.HasOne(d => d.IdRestauranteNavigation).WithMany(p => p.Mesas)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("mesa_fk_restaurante");
         });
 
         modelBuilder.Entity<Pedido>(entity =>
@@ -137,6 +143,18 @@ public partial class PracticaDllContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
+            entity.HasOne(d => d.Horario).WithMany(p => p.Personals)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("personal_fk_horario");
+
+            entity.HasOne(d => d.IdRestauranteNavigation).WithMany(p => p.Personals)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("personal_fk_restaurante");
+
+            entity.HasOne(d => d.Rol).WithMany(p => p.Personals)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("personal_fk_rol");
+
             entity.HasMany(d => d.IdPlatos).WithMany(p => p.IdPersonals)
                 .UsingEntity<Dictionary<string, object>>(
                     "Prepara",
@@ -150,7 +168,7 @@ public partial class PracticaDllContext : DbContext
                     {
                         j.HasKey("IdPersonal", "IdPlato").HasName("PRIMARY");
                         j.ToTable("prepara");
-                        j.HasIndex(new[] { "IdPlato" }, "ID_Plato_idx");
+                        j.HasIndex(new[] { "IdPlato" }, "prepara_ibfk_2");
                         j.IndexerProperty<int>("IdPersonal").HasColumnName("ID_Personal");
                         j.IndexerProperty<int>("IdPlato").HasColumnName("ID_Plato");
                     });
@@ -165,9 +183,9 @@ public partial class PracticaDllContext : DbContext
         {
             entity.HasKey(e => new { e.IdPlato, e.IdProducto }).HasName("PRIMARY");
 
-            entity.HasOne(d => d.IdPlatoNavigation).WithMany(p => p.PlatoProductos).HasConstraintName("plato_producto_ibfk_1");
+            entity.HasOne(d => d.IdPlatoNavigation).WithMany(p => p.PlatoProductos).HasConstraintName("plato_producto_fk_plato");
 
-            entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.PlatoProductos).HasConstraintName("plato_producto_ibfk_2");
+            entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.PlatoProductos).HasConstraintName("plato_producto_fk_producto");
         });
 
         modelBuilder.Entity<Producto>(entity =>
@@ -187,7 +205,7 @@ public partial class PracticaDllContext : DbContext
                     {
                         j.HasKey("IdProducto", "IdProveedor").HasName("PRIMARY");
                         j.ToTable("provee");
-                        j.HasIndex(new[] { "IdProveedor" }, "ID_Proveedor");
+                        j.HasIndex(new[] { "IdProveedor" }, "provee_ibfk_2");
                         j.IndexerProperty<int>("IdProducto").HasColumnName("ID_Producto");
                         j.IndexerProperty<int>("IdProveedor").HasColumnName("ID_Proveedor");
                     });
@@ -204,29 +222,34 @@ public partial class PracticaDllContext : DbContext
 
             entity.HasOne(d => d.DniClienteNavigation).WithMany(p => p.Reservas)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("reservas_ibfk_1");
+                .HasConstraintName("reservas_fk_cliente");
 
             entity.HasOne(d => d.IdPersonalNavigation).WithMany(p => p.Reservas)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("reservas_ibfk_2");
+                .HasConstraintName("reservas_fk_personal");
 
             entity.HasMany(d => d.IdMesas).WithMany(p => p.IdReservas)
                 .UsingEntity<Dictionary<string, object>>(
                     "ReservaMesa",
                     r => r.HasOne<Mesa>().WithMany()
                         .HasForeignKey("IdMesa")
-                        .HasConstraintName("reserva_mesa_ibfk_2"),
+                        .HasConstraintName("reserva_mesa_fk_mesa"),
                     l => l.HasOne<Reserva>().WithMany()
                         .HasForeignKey("IdReserva")
-                        .HasConstraintName("reserva_mesa_ibfk_1"),
+                        .HasConstraintName("reserva_mesa_fk_reserva"),
                     j =>
                     {
                         j.HasKey("IdReserva", "IdMesa").HasName("PRIMARY");
                         j.ToTable("reserva_mesa");
-                        j.HasIndex(new[] { "IdMesa" }, "ID_Mesa");
+                        j.HasIndex(new[] { "IdMesa" }, "reserva_mesa_fk_mesa");
                         j.IndexerProperty<int>("IdReserva").HasColumnName("ID_Reserva");
                         j.IndexerProperty<int>("IdMesa").HasColumnName("ID_Mesa");
                     });
+        });
+
+        modelBuilder.Entity<Restaurante>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
         });
 
         modelBuilder.Entity<Rol>(entity =>
@@ -238,15 +261,15 @@ public partial class PracticaDllContext : DbContext
                     "RolPermiso",
                     r => r.HasOne<Permiso>().WithMany()
                         .HasForeignKey("PermisoId")
-                        .HasConstraintName("rol_permiso_ibfk_2"),
+                        .HasConstraintName("rol_permiso_fk_permiso"),
                     l => l.HasOne<Rol>().WithMany()
                         .HasForeignKey("RolId")
-                        .HasConstraintName("rol_permiso_ibfk_1"),
+                        .HasConstraintName("rol_permiso_fk_rol"),
                     j =>
                     {
                         j.HasKey("RolId", "PermisoId").HasName("PRIMARY");
                         j.ToTable("rol_permiso");
-                        j.HasIndex(new[] { "PermisoId" }, "permiso_id");
+                        j.HasIndex(new[] { "PermisoId" }, "rol_permiso_fk_permiso");
                         j.IndexerProperty<int>("RolId").HasColumnName("rol_id");
                         j.IndexerProperty<int>("PermisoId").HasColumnName("permiso_id");
                     });
@@ -258,15 +281,15 @@ public partial class PracticaDllContext : DbContext
 
             entity.HasOne(d => d.DniClienteNavigation).WithMany(p => p.Usuarios)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("usuario_ibfk_2");
+                .HasConstraintName("usuario_fk_cliente");
 
             entity.HasOne(d => d.IdPersonalNavigation).WithMany(p => p.Usuarios)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("usuario_ibfk_1");
+                .HasConstraintName("usuario_fk_personal");
 
             entity.HasOne(d => d.Rol).WithMany(p => p.Usuarios)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("usuario_ibfk_3");
+                .HasConstraintName("usuario_fk_rol");
         });
 
         OnModelCreatingPartial(modelBuilder);

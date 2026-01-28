@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("proveedor")]
-public partial class Proveedor : ValidatableViewModel
+public partial class Proveedor
 {
     [Key]
     [Column("ID_Proveedor")]

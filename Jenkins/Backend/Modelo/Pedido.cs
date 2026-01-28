@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("pedidos")]
-[Index("DniCliente", Name = "DNI_Cliente")]
-public partial class Pedido : ValidatableViewModel
+[Index("DniCliente", Name = "pedidos_ibfk_1")]
+public partial class Pedido
 {
     [Key]
     [Column("ID")]
@@ -30,10 +29,6 @@ public partial class Pedido : ValidatableViewModel
 
     [Column(TypeName = "datetime")]
     public DateTime? Fecha { get; set; }
-
-    [Column("Total_Pedido")]
-    [Precision(10)]
-    public decimal? TotalPedido { get; set; }
 
     [ForeignKey("DniCliente")]
     [InverseProperty("Pedidos")]

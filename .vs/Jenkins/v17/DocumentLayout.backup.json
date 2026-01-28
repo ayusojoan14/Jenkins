@@ -3,24 +3,31 @@
   "WorkspaceRootPath": "C:\\Users\\windows10\\source\\repos\\Jenkins\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\frontend\\dialogo\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|solutionrelative:jenkins\\frontend\\dialogo\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\backend\\mvvm\\mvmesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|solutionrelative:jenkins\\backend\\mvvm\\mvmesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|solutionrelative:jenkins\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\frontend\\dialogo\\anyiadirreserva.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|solutionrelative:jenkins\\frontend\\dialogo\\anyiadirreserva.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\frontend\\dialogo\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|solutionrelative:jenkins\\frontend\\dialogo\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\backend\\mvvm\\mvmesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|solutionrelative:jenkins\\backend\\mvvm\\mvmesa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\windows10\\AppData\\Local\\Temp\\.vsdbgsrc\\aad6be2495d0a786b94b3514a5b6903407fe2d6a75ad7e505df6a9d895927867\\XamlReader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\backend\\modelo\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|solutionrelative:jenkins\\backend\\modelo\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\backend\\modelo\\practicadllcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|solutionrelative:jenkins\\backend\\modelo\\practicadllcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\frontend\\dialogo\\anyiadirreserva.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|solutionrelative:jenkins\\frontend\\dialogo\\anyiadirreserva.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29E916FC-910C-47DE-A79A-A6D74A8682F0}|Jenkins\\Jenkins.csproj|c:\\users\\windows10\\source\\repos\\jenkins\\jenkins\\frontend\\dialogo\\anyiadirreserva.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -54,7 +61,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 161,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,15 +73,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "PracticaDllContext.cs",
+              "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Modelo\\PracticaDllContext.cs",
+              "RelativeDocumentMoniker": "Jenkins\\Backend\\Modelo\\PracticaDllContext.cs",
+              "ToolTip": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Modelo\\PracticaDllContext.cs",
+              "RelativeToolTip": "Jenkins\\Backend\\Modelo\\PracticaDllContext.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAA6wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T06:57:11.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "XamlReader.cs",
+              "DocumentMoniker": "C:\\Users\\windows10\\AppData\\Local\\Temp\\.vsdbgsrc\\aad6be2495d0a786b94b3514a5b6903407fe2d6a75ad7e505df6a9d895927867\\XamlReader.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\aad6be2495d0a786b94b3514a5b6903407fe2d6a75ad7e505df6a9d895927867\\XamlReader.cs",
+              "ToolTip": "C:\\Users\\windows10\\AppData\\Local\\Temp\\.vsdbgsrc\\aad6be2495d0a786b94b3514a5b6903407fe2d6a75ad7e505df6a9d895927867\\XamlReader.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\aad6be2495d0a786b94b3514a5b6903407fe2d6a75ad7e505df6a9d895927867\\XamlReader.cs",
+              "ViewState": "AgIAAJ0BAAAAAAAAAAAAwLUBAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T12:03:25.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Login.xaml.cs",
               "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Frontend\\Dialogo\\Login.xaml.cs",
               "RelativeDocumentMoniker": "Jenkins\\Frontend\\Dialogo\\Login.xaml.cs",
               "ToolTip": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Frontend\\Dialogo\\Login.xaml.cs",
               "RelativeToolTip": "Jenkins\\Frontend\\Dialogo\\Login.xaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAArwCQAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAUwC8AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-27T12:02:22.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Reserva.cs",
+              "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Modelo\\Reserva.cs",
+              "RelativeDocumentMoniker": "Jenkins\\Backend\\Modelo\\Reserva.cs",
+              "ToolTip": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Modelo\\Reserva.cs",
+              "RelativeToolTip": "Jenkins\\Backend\\Modelo\\Reserva.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T11:48:24.93Z",
               "EditorCaption": ""
             },
             {
@@ -85,14 +131,14 @@
               "RelativeDocumentMoniker": "Jenkins\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\MainWindow.xaml.cs",
               "RelativeToolTip": "Jenkins\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAD4vx4AAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-27T11:55:45.127Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "AnyiadirReserva.xaml.cs",
               "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Frontend\\Dialogo\\AnyiadirReserva.xaml.cs",
               "RelativeDocumentMoniker": "Jenkins\\Frontend\\Dialogo\\AnyiadirReserva.xaml.cs",
@@ -100,12 +146,11 @@
               "RelativeToolTip": "Jenkins\\Frontend\\Dialogo\\AnyiadirReserva.xaml.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAWwCAAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T11:49:38.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-27T11:49:38.144Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "HorarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Servicios(Repositorios)\\HorarioRepository.cs",
               "RelativeDocumentMoniker": "Jenkins\\Backend\\Servicios(Repositorios)\\HorarioRepository.cs",
@@ -113,12 +158,11 @@
               "RelativeToolTip": "Jenkins\\Backend\\Servicios(Repositorios)\\HorarioRepository.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T11:45:03.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-27T11:45:03.377Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Horario.cs",
               "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Modelo\\Horario.cs",
               "RelativeDocumentMoniker": "Jenkins\\Backend\\Modelo\\Horario.cs",
@@ -126,12 +170,11 @@
               "RelativeToolTip": "Jenkins\\Backend\\Modelo\\Horario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T11:44:21.288Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-27T11:44:21.288Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Modelo\\Usuario.cs",
               "RelativeDocumentMoniker": "Jenkins\\Backend\\Modelo\\Usuario.cs",
@@ -143,20 +186,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "MVMesa.cs",
               "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\MVVM\\MVMesa.cs",
               "RelativeDocumentMoniker": "Jenkins\\Backend\\MVVM\\MVMesa.cs",
               "ToolTip": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\MVVM\\MVMesa.cs",
               "RelativeToolTip": "Jenkins\\Backend\\MVVM\\MVMesa.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAkwAwAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBEAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T12:26:14.594Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Servicios(Repositorios)\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "Jenkins\\Backend\\Servicios(Repositorios)\\UsuarioRepository.cs",
@@ -168,19 +211,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "AnyiadirReserva.xaml",
               "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Frontend\\Dialogo\\AnyiadirReserva.xaml",
               "RelativeDocumentMoniker": "Jenkins\\Frontend\\Dialogo\\AnyiadirReserva.xaml",
               "ToolTip": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Frontend\\Dialogo\\AnyiadirReserva.xaml",
               "RelativeToolTip": "Jenkins\\Frontend\\Dialogo\\AnyiadirReserva.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-26T08:00:07.229Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-26T08:00:07.229Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Mesa.cs",
               "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Modelo\\Mesa.cs",
               "RelativeDocumentMoniker": "Jenkins\\Backend\\Modelo\\Mesa.cs",
@@ -199,40 +241,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "8962db0a-1a48-47ea-ac0d-d1ccd4cd82eb",
-        "Display": 1,
-        "X": 1,
-        "Y": 1,
-        "Width": 1364,
-        "Height": 718,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Reserva.cs",
-              "DocumentMoniker": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Modelo\\Reserva.cs",
-              "RelativeDocumentMoniker": "Jenkins\\Backend\\Modelo\\Reserva.cs",
-              "ToolTip": "C:\\Users\\windows10\\source\\repos\\Jenkins\\Jenkins\\Backend\\Modelo\\Reserva.cs",
-              "RelativeToolTip": "Jenkins\\Backend\\Modelo\\Reserva.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T11:48:24.93Z",
-              "EditorCaption": ""
             }
           ]
         }

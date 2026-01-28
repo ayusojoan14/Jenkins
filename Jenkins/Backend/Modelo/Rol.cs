@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("rol")]
-public partial class Rol : ValidatableViewModel
+public partial class Rol
 {
     [Key]
     [Column("ID")]
@@ -16,6 +15,9 @@ public partial class Rol : ValidatableViewModel
 
     [StringLength(100)]
     public string Descripcion { get; set; } = null!;
+
+    [InverseProperty("Rol")]
+    public virtual ICollection<Personal> Personals { get; set; } = new List<Personal>();
 
     [InverseProperty("Rol")]
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();

@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("usuario")]
-[Index("DniCliente", Name = "DNI_Cliente")]
-[Index("IdPersonal", Name = "ID_Personal")]
 [Index("Username", Name = "Username", IsUnique = true)]
-[Index("RolId", Name = "rol_id")]
-public partial class Usuario : ValidatableViewModel
+[Index("DniCliente", Name = "usuario_fk_cliente")]
+[Index("IdPersonal", Name = "usuario_fk_personal")]
+[Index("RolId", Name = "usuario_fk_rol")]
+public partial class Usuario
 {
     [Key]
     [Column("ID")]
@@ -23,9 +22,6 @@ public partial class Usuario : ValidatableViewModel
 
     [StringLength(255)]
     public string PasswordHash { get; set; } = null!;
-
-    [Column(TypeName = "enum('CLIENTE','EMPLEADO')")]
-    public string Tipo { get; set; } = null!;
 
     [Column("ID_Personal")]
     public int? IdPersonal { get; set; }

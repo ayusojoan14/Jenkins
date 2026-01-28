@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("reservas")]
-[Index("DniCliente", Name = "DNI_Cliente")]
-[Index("IdPersonal", Name = "ID_Personal")]
-public partial class Reserva : ValidatableViewModel
+[Index("DniCliente", Name = "reservas_fk_cliente")]
+[Index("IdPersonal", Name = "reservas_fk_personal")]
+public partial class Reserva
 {
     [Key]
     [Column("ID")]
@@ -27,7 +26,6 @@ public partial class Reserva : ValidatableViewModel
     public TimeSpan? Hora { get; set; }
 
     [Column("Numero_Personas")]
-    [Required(ErrorMessage = "El número de personas es obligatorio")]
     public int? NumeroPersonas { get; set; }
 
     [Column("ID_Personal")]

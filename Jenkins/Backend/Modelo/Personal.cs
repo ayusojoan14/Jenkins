@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [Table("personal")]
-public partial class Personal : ValidatableViewModel
+[Index("HorarioId", Name = "personal_fk_horario")]
+[Index("IdRestaurante", Name = "personal_fk_restaurante")]
+[Index("RolId", Name = "personal_fk_rol")]
+public partial class Personal
 {
     [Key]
     [Column("ID")]
@@ -24,14 +26,32 @@ public partial class Personal : ValidatableViewModel
     [StringLength(150)]
     public string? Apellidos { get; set; }
 
-    [StringLength(100)]
-    public string? Roles { get; set; }
+    [Column("Horario_ID")]
+    public int? HorarioId { get; set; }
+
+    [Column("rol_id")]
+    public int? RolId { get; set; }
+
+    [Column("ID_Restaurante")]
+    public int? IdRestaurante { get; set; }
 
     [StringLength(100)]
     public string? Contacto { get; set; }
 
+    [ForeignKey("HorarioId")]
+    [InverseProperty("Personals")]
+    public virtual Horario? Horario { get; set; }
+
+    [ForeignKey("IdRestaurante")]
+    [InverseProperty("Personals")]
+    public virtual Restaurante? IdRestauranteNavigation { get; set; }
+
     [InverseProperty("IdPersonalNavigation")]
     public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
+
+    [ForeignKey("RolId")]
+    [InverseProperty("Personals")]
+    public virtual Rol? Rol { get; set; }
 
     [InverseProperty("IdPersonalNavigation")]
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();

@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Jenkins.Backend.MVVM.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jenkins.Backend.Modelo;
 
 [PrimaryKey("IdPlato", "IdProducto")]
 [Table("plato_producto")]
-[Index("IdProducto", Name = "ID_Producto")]
-public partial class PlatoProducto : ValidatableViewModel
+[Index("IdProducto", Name = "plato_producto_fk_producto")]
+public partial class PlatoProducto
 {
     [Key]
     [Column("ID_Plato")]
