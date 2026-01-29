@@ -7,9 +7,9 @@ namespace Jenkins.Backend.Repositorios
 {
     public class HorarioRepository : IHorarioRepository
     {
-        private readonly DbContext _context;
+        private readonly PracticaDllContext _context;
 
-        public HorarioRepository(DbContext context)
+        public HorarioRepository(PracticaDllContext context)
         {
             _context = context;
         }

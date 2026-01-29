@@ -21,8 +21,25 @@ namespace Jenkins.Backend.MVVM
         private Reserva _reserva;
         private DisponibilidadMesa _disponibilidadMesa;
         private Horario _horario;
+        private Personal _personal;
+        private Restaurante _restaurante;
 
 
+        public MVMesa(HorarioRepository horarioRepository,
+                       MesaRepository mesaRepository,
+                       ReservaRepository reservaRepository,
+                       DisponibilidadMesaRepository disponibilidadMesa,
+                       PersonalRepository personalRepository)
+        {
+          
+            _horarioRepository = horarioRepository;
+            _personalRepository = personalRepository;
+            _disponibilidadMesaRepository = disponibilidadMesa;
+            _reservaRepository = reservaRepository;
+            _mesaRepository = mesaRepository;
+
+
+        }
 
 
 
@@ -37,6 +54,7 @@ namespace Jenkins.Backend.MVVM
         private MesaRepository _mesaRepository;
         private ReservaRepository _reservaRepository;
         private DisponibilidadMesaRepository _disponibilidadMesaRepository;
+        private PersonalRepository _personalRepository;
 
         ///Lista de las mesas que puede haber
         ///
